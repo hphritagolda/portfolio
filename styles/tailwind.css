@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+}
+
+@layer components {
+  .double-button {
+    @apply bg-grey py-2 px-10 text-white uppercase font-bold inline-block relative before:border-grey before:border-2 before:absolute before:w-full before:h-full before:top-2 before:-bottom-2 before:left-2 before:-right-2 before:-z-10;
+  }
+
+  .highlighted-title {
+    @apply relative inline-block before:left-2 before:-right-2 before:bottom-0 before:border-b-[24px] before:border-red-light before:border-solid before:absolute before:-z-10;
+  }
+
+  .squiggle {
+    -webkit-mask-image: url(/svgs/Vector.svg);
+    mask-image: url(/svgs/Vector.svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: top left;
+    mask-position: top left;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+  }
+}
+
+@layer utilities {
+  @keyframes float {
+    0%,
+    100% {
+      transform: translatey(0px, 0px);
+    }
+    50% {
+      transform: translate(-10px, -15px) rotate(20deg) scale(1.1, 0.9);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .shift {
+      animation: float 15s ease-in-out infinite;
+    }
+  }
+
+  .animation-offset-2 {
+    animation-delay: -2s;
+  }
+
+  .animation-offset-4 {
+    animation-delay: -4s;
+  }
+
+  .animation-offset-6 {
+    animation-delay: -6s;
+  }
+
+  .animation-offset-8 {
+    animation-delay: -8s;
+  }
+}
