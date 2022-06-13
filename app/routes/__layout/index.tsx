@@ -52,7 +52,7 @@ export default function Index() {
         </h2>
 
         {workItems.map((workItem) => (
-          <WorkItem key={workItem.slug} workItem={workItem} />
+          <WorkItem key={workItem.slug} workItem={workItem} titleAs="h3" />
         ))}
 
         <div className="flex justify-center">

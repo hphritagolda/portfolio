@@ -8,6 +8,7 @@ interface WorkItemProps {
     "slug" | "name" | "description" | "colour" | "image"
   >;
   lazy?: boolean;
+  titleAs?: React.ElementType;
 }
 
 const background: Record<WorkPiece["colour"], string> = {
@@ -19,7 +20,8 @@ const background: Record<WorkPiece["colour"], string> = {
 
 const WorkItem: FC<WorkItemProps> = ({
   workItem: { name, colour, description, image, slug },
-  lazy,
+  lazy = false,
+  titleAs: Title = "h2",
 }) => {
   return (
     <Link
@@ -27,7 +29,7 @@ const WorkItem: FC<WorkItemProps> = ({
       className={`mb-8 flex flex-col text-white odd:md:flex-row-reverse even:md:flex-row ${
         background[colour] ?? "bg-orange"
       }`}
-      aria-labelledby=""
+      aria-labelledby={`${slug}-title`}
     >
       <img
         loading={lazy ? "lazy" : "eager"}
@@ -38,9 +40,9 @@ const WorkItem: FC<WorkItemProps> = ({
         height={200}
       />
       <div className="px-8 py-12 md:w-1/2">
-        <h3 className="mb-4 text-xl font-bold" id={slug}>
+        <Title className="mb-4 text-xl font-bold" id={`${slug}-title`}>
           {name}
-        </h3>
+        </Title>
         <p>{description}</p>
       </div>
     </Link>
