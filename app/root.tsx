@@ -6,7 +6,9 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useCatch,
 } from "@remix-run/react";
+import Header from "./components/Header";
 
 import styles from "./styles/tailwind.css";
 
@@ -19,6 +21,34 @@ export const meta: MetaFunction = () => ({
   description:
     "A digital design student, an occassional youtuber & a serious foodie.",
 });
+
+export function CatchBoundary() {
+  const caught = useCatch();
+  return (
+    <html>
+      <head>
+        <title>Oops!</title>
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <main className="mx-auto max-w-xl px-8 pt-48">
+          <h1 className="bold highlighted-title mb-8 text-4xl">
+            {caught.status} {caught.statusText}
+          </h1>
+          <img
+            src={`https://http.cat/${caught.status}`}
+            alt="Status"
+            width={500}
+            height={500}
+          />
+        </main>
+        <Header />
+        <Scripts />
+      </body>
+    </html>
+  );
+}
 
 export default function App() {
   return (
