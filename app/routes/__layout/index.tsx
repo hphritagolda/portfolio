@@ -1,21 +1,35 @@
-import { Link } from "@remix-run/react";
+import type { LoaderFunction } from "@remix-run/cloudflare";
+import { json } from "@remix-run/cloudflare";
+import { Link, useLoaderData } from "@remix-run/react";
 import BlobLarge from "~/components/blobs/BlobLarge";
 import BlobSmall from "~/components/blobs/BlobSmall";
+import WorkItem from "~/components/WorkItem";
+import type { WorkPiece } from "~/models/work.server";
+import { works } from "~/models/work.server";
+
+interface IndexLoadData {
+  workItems: WorkPiece[];
+}
+
+export const loader: LoaderFunction = async () => {
+  return json<IndexLoadData>({ workItems: works.slice(0, 2) });
+};
 
 export default function Index() {
+  const { workItems } = useLoaderData<IndexLoadData>();
   return (
-    <main className="py-40 px-8 overflow-hidden">
-      <div className="w-full max-w-4xl mx-auto mb-16 flex flex-col md:flex-row gap-16 justify-center items-center h-full min-h-[50vh] relative">
-        <BlobLarge className="absolute shift w-48 h-48 top-56 right-24 fill-green -z-20 rotate-45 animation-offset-8" />
+    <main className="overflow-hidden py-40 px-8">
+      <div className="relative mx-auto mb-16 flex h-full min-h-[50vh] w-full max-w-4xl flex-col items-center justify-center gap-16 md:flex-row">
+        <BlobLarge className="shift animation-offset-8 absolute top-56 right-24 -z-20 h-48 w-48 rotate-45 fill-green" />
 
         <div className="relative">
-          <BlobSmall className="h-full w-full inset-0 fill-blue absolute -z-20 scale-110 rotate-45 shift" />
-          <BlobSmall className="h-32 w-32 left-0 -bottom-10 fill-red absolute -z-20 -rotate-12 shift" />
+          <BlobSmall className="shift absolute inset-0 -z-20 h-full w-full rotate-45 scale-110 fill-blue" />
+          <BlobSmall className="shift absolute left-0 -bottom-10 -z-20 h-32 w-32 -rotate-12 fill-red" />
 
           <img src="/images/memoji.png" alt="Hanna" width={300} height={300} />
         </div>
         <div>
-          <h1 className="uppercase font-black text-5xl lg:text-6xl xl:text-7xl mb-6">
+          <h1 className="mb-6 text-5xl font-black uppercase lg:text-6xl xl:text-7xl">
             Hey, it's Hanna!
           </h1>
           <p className="mb-4 text-lg">
@@ -28,64 +42,30 @@ export default function Index() {
         </div>
       </div>
 
-      <section className="max-w-4xl mx-auto mb-16 relative">
-        <BlobLarge className="h-64 w-64 top-0 -right-12 fill-red absolute -z-20 animation-offset-8 shift" />
-        <BlobSmall className="absolute shift w-48 h-48 top-72 left-24 fill-blue -z-20 rotate-45 animation-offset-8" />
-        <BlobLarge className="h-32 w-32 bottom-4 right-48 fill-green absolute -z-20 rotate-90 shift" />
+      <section className="relative mx-auto mb-16 max-w-4xl">
+        <BlobLarge className="animation-offset-8 shift absolute top-0 -right-12 -z-20 h-64 w-64 fill-red" />
+        <BlobSmall className="shift animation-offset-8 absolute top-72 left-24 -z-20 h-48 w-48 rotate-45 fill-blue" />
+        <BlobLarge className="shift absolute bottom-4 right-48 -z-20 h-32 w-32 rotate-90 fill-green" />
 
-        <h2 className="text-4xl font-bold mb-12 highlighted-title">
+        <h2 className="highlighted-title mb-12 text-4xl font-bold">
           Recent Works
         </h2>
 
-        <div className="flex flex-col md:flex-row-reverse bg-orange text-white mb-8">
-          <img
-            loading="lazy"
-            src="/images/petcare.png"
-            className="w-full h-1/2 md:h-full md:w-1/2 object-cover"
-            alt="Petcare"
-            width={300}
-            height={200}
-          />
-          <div className="px-8 py-12 md:w-1/2">
-            <h3 className="text-xl font-bold mb-4">Pet Care for RSCPA</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-              eget magna non lectus dictum commodo. Suspendisse tempus vel
-              libero eget tempus. In dictum sollicitudin metus at elementum.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-col md:flex-row bg-blue text-white mb-12">
-          <img
-            loading="lazy"
-            src="/images/creec.png"
-            className="w-full h-1/2 md:h-full md:w-1/2 object-cover"
-            alt="Petcare"
-            width={300}
-            height={200}
-          />
-          <div className="px-8 py-12 md:w-1/2">
-            <h3 className="text-xl font-bold mb-4">CREEC App</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-              eget magna non lectus dictum commodo. Suspendisse tempus vel
-              libero eget tempus. In dictum sollicitudin metus at elementum.
-            </p>
-          </div>
-        </div>
+        {workItems.map((workItem) => (
+          <WorkItem key={workItem.slug} workItem={workItem} />
+        ))}
 
         <div className="flex justify-center">
           <Link to="/work" className="double-button">
-            See More
+            See More work
           </Link>
         </div>
       </section>
 
-      <section className="max-w-4xl mx-auto mb-16">
-        <h2 className="text-4xl font-bold mb-12 highlighted-title">About Me</h2>
+      <section className="mx-auto mb-16 max-w-4xl">
+        <h2 className="highlighted-title mb-12 text-4xl font-bold">About Me</h2>
 
-        <div className="flex flex-col gap-12 md:flex-row items-center mb-12">
+        <div className="mb-12 flex flex-col items-center gap-12 md:flex-row">
           <div className="relative">
             <img
               loading="lazy"
@@ -93,7 +73,7 @@ export default function Index() {
               alt="Hanna"
               width={500}
               height={500}
-              className="object-cover squiggle"
+              className="squiggle object-cover"
             />
           </div>
           <div>
@@ -117,7 +97,7 @@ export default function Index() {
 
         <div className="flex justify-center">
           <Link to="/about" className="double-button">
-            See More
+            More about me
           </Link>
         </div>
       </section>
