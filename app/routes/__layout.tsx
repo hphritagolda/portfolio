@@ -6,21 +6,21 @@ export default function Layout() {
   return (
     <>
       <Outlet />
-      <div className="-z-20 absolute inset-0 overflow-hidden h-full w-full pointer-events-none ">
-        <div className="max-w-7xl mx-auto relative">
-          <BlobSmall className="w-24 h-24 md:w-32 md:h-32 absolute top-4 -left-8 shift -z-20 fill-red" />
-          <BlobLarge className="w-64 h-64 absolute -top-8 -right-24 shift -z-20 fill-orange animation-offset-4" />
+      <div className="pointer-events-none absolute inset-0 -z-20 h-full w-full overflow-hidden ">
+        <div className="relative mx-auto max-w-7xl">
+          <BlobSmall className="shift absolute top-4 -left-8 -z-20 h-24 w-24 fill-red md:h-32 md:w-32" />
+          <BlobLarge className="shift animation-offset-4 absolute -top-8 -right-24 -z-20 h-64 w-64 fill-orange" />
         </div>
       </div>
-      <header className="absolute top-0 left-0 right-0 w-full p-8 lg:p-16 overflow-hidden">
-        <div className="flex flex-row flex-nowrap justify-between items-center max-w-7xl mx-auto relative">
+      <header className="absolute top-0 left-0 right-0 w-full overflow-hidden p-8 lg:p-16">
+        <div className="relative mx-auto flex max-w-7xl flex-row flex-nowrap items-center justify-between">
           <Link
             to="/"
-            className="mr-auto text-2xl md:text-3xl lg:text-5xl xl:text-6xl uppercase font-bold"
+            className="mr-auto text-2xl font-bold uppercase md:text-3xl lg:text-5xl xl:text-6xl"
           >
             voguesama.
           </Link>
-          <nav className="hidden md:flex flex-row gap-8 uppercase text-lg md:text-xl lg:text-2xl">
+          <nav className="hidden flex-row gap-8 text-lg uppercase md:flex md:text-xl lg:text-2xl">
             <Link to="/about">about</Link>
             <Link to="/work">work</Link>
             <Link to="/resume">resume</Link>

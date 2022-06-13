@@ -10,11 +10,11 @@
 
 @layer components {
   .double-button {
-    @apply bg-grey py-2 px-10 text-white uppercase font-bold inline-block relative before:border-grey before:border-2 before:absolute before:w-full before:h-full before:top-2 before:-bottom-2 before:left-2 before:-right-2 before:-z-10;
+    @apply relative inline-block bg-grey py-2 px-10 font-bold uppercase text-white before:absolute before:top-2 before:-bottom-2 before:left-2 before:-right-2 before:-z-10 before:h-full before:w-full before:border-2 before:border-grey;
   }
 
   .highlighted-title {
-    @apply relative inline-block before:left-2 before:-right-2 before:bottom-0 before:border-b-[24px] before:border-red-light before:border-solid before:absolute before:-z-10;
+    @apply relative inline-block before:absolute before:left-2 before:-right-2 before:bottom-0 before:-z-10 before:border-b-[24px] before:border-solid before:border-red-light;
   }
 
   .squiggle {
