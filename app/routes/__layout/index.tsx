@@ -62,11 +62,17 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="mx-auto mb-16 max-w-4xl">
+      <section className="relative mx-auto mb-16 max-w-4xl">
+        <BlobLarge className="animation-offset-8 shift absolute -top-16 -right-12 -z-20 h-64 w-64 fill-blue" />
+        <BlobLarge className="shift absolute -bottom-32 right-48 -z-20 h-48 w-48 rotate-90 fill-orange" />
+
         <h2 className="highlighted-title mb-12 text-4xl font-bold">About Me</h2>
 
         <div className="mb-12 flex flex-col items-center gap-12 md:flex-row">
           <div className="relative">
+            <BlobSmall className="shift absolute left-0 -top-8 -z-20 h-28 w-28 fill-red" />
+            <BlobLarge className="shift animation-offset-8 absolute right-8 -bottom-10 -z-20 h-32 w-32 fill-green-light" />
+
             <img
               loading="lazy"
               src="/images/hanna.jpg"
