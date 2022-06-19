@@ -27,7 +27,7 @@ export const works: WorkPiece[] = [
     slug: "creec",
     name: "CREEC App",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget magna non lectus dictum commodo. Suspendisse tempus vel libero eget tempus. In dictum sollicitudin metus at elementum.",
+      "Afraid of getting lost from the rest of your group? Navigate through the Canning River trail using the CREEC App :D",
     image: "/images/creec.png",
     colour: "green",
   },
@@ -35,7 +35,7 @@ export const works: WorkPiece[] = [
     slug: "scrolld",
     name: "Scroll'd",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget magna non lectus dictum commodo. Suspendisse tempus vel libero eget tempus. In dictum sollicitudin metus at elementum.",
+      "A small passion project to keep track of our notes, characters, and interactions for our Dungeon & Dragons campaigns.",
     image: "/images/scrolld.png",
     colour: "red",
   },
