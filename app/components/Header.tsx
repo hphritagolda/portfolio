@@ -20,9 +20,19 @@ const Header: FC = () => (
           voguesama.
         </Link>
         <nav className="hidden flex-row gap-8 text-lg uppercase md:flex md:text-xl lg:text-2xl">
-          <Link to="/about">about</Link>
+          <span
+            // to="/about"
+            className="line-through"
+          >
+            about
+          </span>
           <Link to="/work">work</Link>
-          <Link to="/resume">resume</Link>
+          <span
+            // to="/resume"
+            className="line-through"
+          >
+            resume
+          </span>
         </nav>
       </div>
     </header>
