@@ -19,7 +19,7 @@ export const works: WorkPiece[] = [
     slug: "ivy-mae-photography",
     name: "Ivy Mae Photography",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget magna non lectus dictum commodo. Suspendisse tempus vel libero eget tempus. In dictum sollicitudin metus at elementum.",
+      "A photography portfolio, for an up and coming photographer Ivy Chapel. Discover her style, passion and works through an eye-catching website!",
     image: "/images/ivy-mae.png",
     colour: "blue",
   },
