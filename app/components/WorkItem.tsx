@@ -1,4 +1,3 @@
-import { Link } from "@remix-run/react";
 import type { FC } from "react";
 import type { WorkPiece } from "~/models/work.server";
 
@@ -24,9 +23,10 @@ const WorkItem: FC<WorkItemProps> = ({
   titleAs: Title = "h2",
 }) => {
   return (
-    <Link
-      to={`/work/${slug}`}
-      className={`mb-8 flex flex-col text-white odd:md:flex-row-reverse even:md:flex-row ${
+    // <Link
+    //   to={`/work/${slug}`}
+    <div
+      className={`mb-8 flex flex-col text-white odd:md:flex-row even:md:flex-row-reverse ${
         background[colour] ?? "bg-orange"
       }`}
       aria-labelledby={`${slug}-title`}
@@ -43,9 +43,9 @@ const WorkItem: FC<WorkItemProps> = ({
         <Title className="mb-4 text-xl font-bold" id={`${slug}-title`}>
           {name}
         </Title>
-        <p>{description}</p>
+        <p className="text-base lg:text-lg">{description}</p>
       </div>
-    </Link>
+    </div>
   );
 };
 

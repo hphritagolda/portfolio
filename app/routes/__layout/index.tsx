@@ -20,7 +20,7 @@ export default function Index() {
   return (
     <main className="overflow-hidden py-40 px-8">
       <div className="relative mx-auto mb-16 flex h-full min-h-[50vh] w-full max-w-4xl flex-col items-center justify-center gap-16 md:flex-row">
-        <BlobLarge className="shift animation-offset-8 absolute top-56 right-24 -z-20 h-48 w-48 rotate-45 fill-green" />
+        <BlobLarge className="shift animation-offset-8 absolute top-56 right-24 -z-20 h-48 w-48 rotate-45 fill-green-light" />
 
         <div className="relative">
           <BlobSmall className="shift absolute inset-0 -z-20 h-full w-full rotate-45 scale-110 fill-blue" />
@@ -45,7 +45,7 @@ export default function Index() {
       <section className="relative mx-auto mb-16 max-w-4xl">
         <BlobLarge className="animation-offset-8 shift absolute top-0 -right-12 -z-20 h-64 w-64 fill-red" />
         <BlobSmall className="shift animation-offset-8 absolute top-72 left-24 -z-20 h-48 w-48 rotate-45 fill-blue" />
-        <BlobLarge className="shift absolute bottom-4 right-48 -z-20 h-32 w-32 rotate-90 fill-green" />
+        <BlobLarge className="shift absolute bottom-4 right-48 -z-20 h-32 w-32 rotate-90 fill-green-light" />
 
         <h2 className="highlighted-title mb-12 text-4xl font-bold">
           Recent Works
