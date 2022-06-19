@@ -26,7 +26,7 @@ const WorkItem: FC<WorkItemProps> = ({
   return (
     <Link
       to={`/work/${slug}`}
-      className={`mb-8 flex flex-col text-white odd:md:flex-row-reverse even:md:flex-row ${
+      className={`mb-8 flex flex-col text-white odd:md:flex-row even:md:flex-row-reverse ${
         background[colour] ?? "bg-orange"
       }`}
       aria-labelledby={`${slug}-title`}
