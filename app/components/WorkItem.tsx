@@ -43,7 +43,7 @@ const WorkItem: FC<WorkItemProps> = ({
         <Title className="mb-4 text-xl font-bold" id={`${slug}-title`}>
           {name}
         </Title>
-        <p>{description}</p>
+        <p className="text-base lg:text-lg">{description}</p>
       </div>
     </Link>
   );
