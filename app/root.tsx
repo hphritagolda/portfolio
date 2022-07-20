@@ -36,7 +36,7 @@ export const meta: MetaFunction = () => ({
   viewport: "width=device-width,initial-scale=1",
   title: "Hanna Pritagolda",
   description:
-    "A digital design student, an occassional youtuber & a serious foodie.",
+    "A digital design student, an occasional youtuber & a serious foodie.",
 
   "msapplication-TileColor": "#fffbf6",
   "theme-color": "#fffbf6",
