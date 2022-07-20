@@ -37,6 +37,7 @@ export const meta: MetaFunction = () => ({
   title: "Hanna Pritagolda",
   description:
     "A digital design student, an occasional youtuber & a serious foodie.",
+  image: "/images/hanna.jpg",
 
   "msapplication-TileColor": "#fffbf6",
   "theme-color": "#fffbf6",
