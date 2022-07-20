@@ -1,6 +1,7 @@
 import type { LoaderFunction } from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 import { Link, useLoaderData } from "@remix-run/react";
+import AboutSection from "~/components/AboutSection";
 import BlobLarge from "~/components/blobs/BlobLarge";
 import BlobSmall from "~/components/blobs/BlobSmall";
 import WorkItem from "~/components/WorkItem";
@@ -62,51 +63,7 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="relative mx-auto mb-16 max-w-4xl">
-        <BlobLarge className="animation-offset-8 shift absolute -top-16 -right-12 -z-20 h-64 w-64 fill-blue" />
-        <BlobLarge className="shift absolute -bottom-32 right-48 -z-20 h-48 w-48 rotate-90 fill-orange" />
-
-        <h2 className="highlighted-title mb-12 text-4xl font-bold">About Me</h2>
-
-        <div className="mb-12 flex flex-col items-center gap-12 md:flex-row">
-          <div className="relative">
-            <BlobSmall className="shift absolute left-0 -top-8 -z-20 h-28 w-28 fill-red" />
-            <BlobLarge className="shift animation-offset-8 absolute right-8 -bottom-10 -z-20 h-32 w-32 fill-green-light" />
-
-            <img
-              loading="lazy"
-              src="/images/hanna.jpg"
-              alt="Hanna"
-              width={500}
-              height={500}
-              className="squiggle object-cover"
-            />
-          </div>
-          <div>
-            <p className="mb-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-              eget magna non lectus dictum commodo. Suspendisse tempus vel
-              libero eget tempus.
-            </p>
-            <p className="mb-4">
-              In dictum sollicitudin metus at elementum. Donec euismod pharetra
-              urna ut placerat. Aenean luctus sagittis nunc, non lobortis mi
-              placerat quis.
-            </p>
-            <p>
-              Etiam iaculis, erat id ultrices semper, ante quam consectetur
-              nisi, bibendum sollicitudin sapien orci vel orci. Etiam ornare sit
-              amet velit sed rhoncus.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex justify-center">
-          <Link to="/about" className="double-button">
-            More about me
-          </Link>
-        </div>
-      </section>
+      <AboutSection />
     </main>
   );
 }
