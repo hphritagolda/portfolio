@@ -37,9 +37,20 @@ export const meta: MetaFunction = () => ({
   title: "Hanna Pritagolda",
   description:
     "A digital design student, an occasional youtuber & a serious foodie.",
-  image: "/images/hanna.jpg",
 
-  "msapplication-TileColor": "#fffbf6",
+  "og:url": "https://voguesama.me/",
+  "og:title": "Hanna Pritagolda",
+  "og:description":
+    "A digital design student, an occasional youtuber & a serious foodie.",
+  "og:image": "/images/hanna.jpg",
+
+  "twitter:card": "summary_large_image",
+  "twitter:url": "https://voguesama.me/",
+  "twitter:title": "Hanna Pritagolda",
+  "twitter:description":
+    "A digital design student, an occasional youtuber & a serious foodie.",
+  "twitter:image": "/images/hanna.jpg",
+
   "theme-color": "#fffbf6",
 });
 
