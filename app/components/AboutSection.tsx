@@ -4,7 +4,7 @@ import BlobSmall from "./blobs/BlobSmall";
 
 const AboutSection = () => {
   return (
-    <section className="relative mx-auto mb-16 max-w-4xl">
+    <section className="relative mx-auto mb-16 max-w-4xl px-8">
       <BlobLarge className="animation-offset-8 shift absolute -top-16 -right-12 -z-20 h-64 w-64 fill-blue" />
       <BlobLarge className="shift absolute -bottom-32 right-48 -z-20 h-48 w-48 rotate-90 fill-orange" />
 
