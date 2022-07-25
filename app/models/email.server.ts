@@ -35,11 +35,7 @@ export const sendEmail = async (
       content: [
         {
           type: "text/plain",
-          value: `Message from ${name}: ${email}`,
-        },
-        {
-          type: "text/plain",
-          value: message,
+          value: `Message from ${name}: ${email}\n\n${message}`,
         },
       ],
     }),
