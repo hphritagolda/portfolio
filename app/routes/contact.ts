@@ -14,12 +14,12 @@ export interface ContactAction {
 export const action: ActionFunction = async ({ request }) => {
   const formSchema = z.object({
     name: z.string().trim(),
-    email: z.string().email(),
+    email: z.string().email({ message: "Email must be valid" }),
     message: z
       .string()
       .trim()
       .min(5, { message: "Message must be at least 5 characters" })
-      .max(100, { message: "Message cannot be longer than 250 charaters" }),
+      .max(250, { message: "Message cannot be longer than 250 charaters" }),
   });
 
   const formData = await request.formData();

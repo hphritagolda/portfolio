@@ -24,6 +24,7 @@ const ContactForm = () => {
           method="post"
           action="/contact"
           className="max-w-prose flex-grow"
+          replace
           ref={ref}
         >
           <label className="mb-8 block text-xl">
@@ -49,8 +50,6 @@ const ContactForm = () => {
             <textarea
               required
               rows={4}
-              maxLength={250}
-              minLength={5}
               className="block w-full resize-none border-0 border-b-2 border-white bg-grey px-0.5 focus:border-orange focus:ring-0"
               name="message"
             />
@@ -58,15 +57,35 @@ const ContactForm = () => {
 
           <div className="text-center md:text-left">
             <button
-              className="double-button bg-white text-grey before:border-white"
+              className="double-button bg-white text-grey before:border-white disabled:bg-grey-light disabled:before:border-grey-light"
               type="submit"
+              disabled={contact.state === "submitting"}
             >
               Send
             </button>
           </div>
         </contact.Form>
 
-        <div className="flex h-32 flex-col items-center justify-end md:h-auto md:items-end">
+        <div className="flex h-32 flex-col items-center justify-end gap-6 md:h-auto md:items-end">
+          {contact.type === "done" && (
+            <>
+              {contact.data.ok && <p>Thanks for getting in touch!</p>}
+              {contact.data.errors && (
+                <>
+                  {contact.data.errors.name && (
+                    <p data-error>{contact.data.errors.name.join(", ")}</p>
+                  )}
+                  {contact.data.errors.email && (
+                    <p data-error>{contact.data.errors.email.join(", ")}</p>
+                  )}
+                  {contact.data.errors.message && (
+                    <p data-error>{contact.data.errors.message.join(", ")}</p>
+                  )}
+                </>
+              )}
+            </>
+          )}
+
           <h2 className="mb-4 hidden text-4xl font-bold uppercase md:block">
             Get in touch
           </h2>
