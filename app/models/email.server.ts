@@ -75,10 +75,15 @@ export const sendEmail = async (
 
   console.log(await response.text());
 
+  const respText = await response.text();
+
+  const respContent =
+    response.status + " " + response.statusText + "\n\n" + respText;
+
   if (!response.ok) {
     return {
       ok: false,
-      error: "Failed to send email, ".concat(response.statusText),
+      error: "Failed to send email, ".concat(respContent),
     };
   }
 
