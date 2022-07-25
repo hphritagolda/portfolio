@@ -49,4 +49,15 @@ export const sendEmail = async (
   const response = await fetch(send_request);
 
   console.log(await response.text());
+
+  if (!response.ok) {
+    return {
+      ok: false,
+      error: "Failed to send email, ".concat(response.statusText),
+    };
+  }
+
+  return {
+    ok: true,
+  };
 };

@@ -174,7 +174,14 @@ export const action: ActionFunction = async ({ request, context }) => {
     });
   }
 
-  await sendEmail(data.data, context.SENDER_EMAIL);
+  const { ok, error } = await sendEmail(data.data, context.SENDER_EMAIL);
 
-  return json<ContactAction>({ ok: true });
+  if (ok) return json<ContactAction>({ ok: true });
+
+  return json<ContactAction>({
+    ok: false,
+    errors: {
+      email: [String(error)],
+    },
+  });
 };
