@@ -50,7 +50,7 @@ export const sendEmail = async (
   if (!response.ok) {
     return {
       ok: false,
-      error: `Failed to send email, ${response.statusText}`,
+      error: `Failed to send email, ${await response.text()}`,
     };
   }
 
