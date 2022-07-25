@@ -4,8 +4,8 @@ import type { FormProps } from "@remix-run/react";
 import { Form, useActionData, useFetcher } from "@remix-run/react";
 import type { FC } from "react";
 import { FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
-import { z } from "zod";
 import Header from "~/components/Header";
+import { sendEmail, sendEmailSchema } from "~/models/email.server";
 
 interface ContactFormProps {
   Form: React.ForwardRefExoticComponent<
@@ -158,20 +158,10 @@ export interface ContactAction {
   ok: boolean;
 }
 
-export const action: ActionFunction = async ({ request }) => {
-  const formSchema = z.object({
-    name: z.string().trim(),
-    email: z.string().email({ message: "Email must be valid" }),
-    message: z
-      .string()
-      .trim()
-      .min(5, { message: "Message must be at least 5 characters" })
-      .max(250, { message: "Message cannot be longer than 250 charaters" }),
-  });
-
+export const action: ActionFunction = async ({ request, context }) => {
   const formData = await request.formData();
 
-  const data = formSchema.safeParse({
+  const data = sendEmailSchema.safeParse({
     name: formData.get("name"),
     email: formData.get("email"),
     message: formData.get("message"),
@@ -184,7 +174,7 @@ export const action: ActionFunction = async ({ request }) => {
     });
   }
 
-  console.log(data.data);
+  await sendEmail(data.data, context.SENDER_EMAIL);
 
   return json<ContactAction>({ ok: true });
 };
