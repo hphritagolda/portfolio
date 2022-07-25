@@ -12,10 +12,7 @@ export const sendEmailSchema = z.object({
 
 type sendEmailArgs = z.infer<typeof sendEmailSchema>;
 
-export const sendEmail = async (
-  { email, name, message }: sendEmailArgs,
-  sender: string
-) => {
+export const sendEmail = async ({ email, name, message }: sendEmailArgs) => {
   console.log("Sending email", { email, name, message });
   // const send_request = new Request("https://api.mailchannels.net/tx/v1/send", {
   //   method: "POST",
@@ -73,17 +70,12 @@ export const sendEmail = async (
 
   const response = await fetch(send_request);
 
-  console.log(await response.text());
-
   const respText = await response.text();
-
-  const respContent =
-    response.status + " " + response.statusText + "\n\n" + respText;
 
   if (!response.ok) {
     return {
       ok: false,
-      error: "Failed to send email, ".concat(respContent),
+      error: `Failed to send email, ${respText}`,
     };
   }
 

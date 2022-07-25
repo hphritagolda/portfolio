@@ -158,7 +158,7 @@ export interface ContactAction {
   ok: boolean;
 }
 
-export const action: ActionFunction = async ({ request, context }) => {
+export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
 
   const data = sendEmailSchema.safeParse({
@@ -174,7 +174,7 @@ export const action: ActionFunction = async ({ request, context }) => {
     });
   }
 
-  const { ok, error } = await sendEmail(data.data, context.SENDER_EMAIL);
+  const { ok, error } = await sendEmail(data.data);
 
   if (ok) return json<ContactAction>({ ok: true });
 
