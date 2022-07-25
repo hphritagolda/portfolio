@@ -38,7 +38,7 @@ export default function Index() {
             a digital design student, an occassional youtuber &amp; a serious
             foodie.
           </p>
-          <Link to="/contact" className="double-button">
+          <Link to="#contact" className="double-button">
             Hit me up!
           </Link>
         </div>
@@ -88,7 +88,7 @@ export default function Index() {
                 required
                 type="email"
                 className="block w-full border-0 border-b-2 border-white bg-grey px-0.5 focus:border-orange focus:ring-0"
-                name="name"
+                name="email"
               />
             </label>
             <label className="mb-8 block text-xl">
