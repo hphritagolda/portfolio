@@ -1,12 +1,12 @@
 import { Outlet } from "@remix-run/react";
-import ContactForm from "~/components/ContactForm";
 import Header from "~/components/Header";
+import { ContactMe } from "./contact";
 
 export default function Layout() {
   return (
     <>
       <Outlet />
-      <ContactForm />
+      <ContactMe />
       <Header />
     </>
   );
