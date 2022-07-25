@@ -55,7 +55,7 @@ export const sendEmail = async ({ email, name, message }: sendEmailArgs) => {
         },
       ],
       from: {
-        email: "sender@example.com",
+        email: "no-reply@voguesama.me",
         name: "Workers - MailChannels integration",
       },
       subject: "Look! No servers",
