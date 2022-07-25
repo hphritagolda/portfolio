@@ -89,7 +89,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-background text-grey">
+      <body className="bg-background text-grey antialiased">
         <Outlet />
         <ScrollRestoration />
         <Scripts />

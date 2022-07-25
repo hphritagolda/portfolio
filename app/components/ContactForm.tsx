@@ -90,14 +90,29 @@ const ContactForm = () => {
             Get in touch
           </h2>
           <div className="flex flex-row flex-nowrap items-center justify-center gap-4">
-            <a href="#temp">
-              <FaYoutube className="h-8 w-8" />
+            <a
+              className="transition-transform hover:scale-110"
+              href="https://www.youtube.com/channel/UCj59T5u0zxgExpFV8zBr5oQ"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaYoutube className="h-8 w-8" title="My Youtube Channel" />
             </a>
-            <a href="#temp">
-              <FaInstagram className="h-8 w-8" />
+            <a
+              className="transition-transform hover:scale-110"
+              href="https://www.instagram.com/voguesama"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram className="h-8 w-8" title="My Instagram" />
             </a>
-            <a href="#temp">
-              <FaLinkedin className="h-8 w-8" />
+            <a
+              className="transition-transform hover:scale-110"
+              href="https://www.linkedin.com/in/hannaphritagolda"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="h-8 w-8" title="My LinkedIn" />
             </a>
           </div>
         </div>
