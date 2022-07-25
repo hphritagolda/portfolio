@@ -19,8 +19,8 @@ export const loader: LoaderFunction = async () => {
 export default function Index() {
   const { workItems } = useLoaderData<IndexLoadData>();
   return (
-    <main className="overflow-hidden py-40 px-8">
-      <div className="relative mx-auto mb-16 flex h-full min-h-[50vh] w-full max-w-4xl flex-col items-center justify-center gap-16 md:flex-row">
+    <main className="overflow-hidden pt-40">
+      <div className="relative mx-auto mb-16 flex h-full min-h-[50vh] w-full max-w-4xl flex-col items-center justify-center gap-16 px-8 md:flex-row">
         <BlobLarge className="shift animation-offset-8 absolute top-56 right-24 -z-20 h-48 w-48 rotate-45 fill-green-light" />
 
         <div className="relative">
@@ -29,7 +29,7 @@ export default function Index() {
 
           <img src="/images/memoji.png" alt="Hanna" width={300} height={300} />
         </div>
-        <div>
+        <div className="text-center md:text-left">
           <h1 className="mb-6 text-5xl font-black uppercase lg:text-6xl xl:text-7xl">
             Hey, it's Hanna!
           </h1>
@@ -37,13 +37,13 @@ export default function Index() {
             a digital design student, an occassional youtuber &amp; a serious
             foodie.
           </p>
-          <Link to="/contact" className="double-button">
+          <Link to="#contact" className="double-button">
             Hit me up!
           </Link>
         </div>
       </div>
 
-      <section className="relative mx-auto mb-16 max-w-4xl">
+      <section className="relative mx-auto mb-16 max-w-4xl px-8">
         <BlobLarge className="animation-offset-8 shift absolute top-0 -right-12 -z-20 h-64 w-64 fill-red" />
         <BlobSmall className="shift animation-offset-8 absolute top-72 left-24 -z-20 h-48 w-48 rotate-45 fill-blue" />
         <BlobLarge className="shift absolute bottom-4 right-48 -z-20 h-32 w-32 rotate-90 fill-green-light" />
