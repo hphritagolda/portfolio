@@ -66,7 +66,7 @@ export default function Index() {
 
       <AboutSection />
 
-      <section className="w-full bg-grey text-white">
+      <section className="w-full bg-grey text-white" id="contact">
         <div className="mx-auto flex max-w-4xl flex-col flex-nowrap gap-4 px-8 pt-12 pb-6 md:flex-row md:items-stretch md:gap-24 md:pb-16">
           <h2 className="mb-8 text-4xl font-bold uppercase md:hidden">
             Get in touch
