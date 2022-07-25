@@ -17,6 +17,35 @@ export const sendEmail = async (
   sender: string
 ) => {
   console.log("Sending email", { email, name, message });
+  // const send_request = new Request("https://api.mailchannels.net/tx/v1/send", {
+  //   method: "POST",
+  //   headers: {
+  //     "content-type": "application/json",
+  //   },
+  //   body: JSON.stringify({
+  //     personalizations: [
+  //       {
+  //         to: [{ email, name }],
+  //       },
+  //     ],
+  //     from: {
+  //       email: sender,
+  //       name: "Voguesama - MailChannels integration",
+  //     },
+  //     subject: "Look! No servers",
+  //     content: [
+  //       {
+  //         type: "text/plain",
+  //         value: `A message sent from ${name}`,
+  //       },
+  //       {
+  //         type: "text/plain",
+  //         value: message,
+  //       },
+  //     ],
+  //   }),
+  // });
+
   const send_request = new Request("https://api.mailchannels.net/tx/v1/send", {
     method: "POST",
     headers: {
@@ -29,18 +58,14 @@ export const sendEmail = async (
         },
       ],
       from: {
-        email: sender,
-        name: "Voguesama - MailChannels integration",
+        email: "sender@example.com",
+        name: "Workers - MailChannels integration",
       },
       subject: "Look! No servers",
       content: [
         {
           type: "text/plain",
-          value: `A message sent from ${name}`,
-        },
-        {
-          type: "text/plain",
-          value: message,
+          value: "And no email service accounts and all for free too!",
         },
       ],
     }),
