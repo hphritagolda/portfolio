@@ -53,6 +53,8 @@ const ContactForm: FC<ContactFormProps> = ({ Form, type, state, data }) => {
             <textarea
               required
               rows={4}
+              minLength={5}
+              maxLength={250}
               className="block w-full resize-none border-0 border-b-2 border-white bg-grey px-0.5 focus:border-orange focus:ring-0 disabled:border-transparent"
               name="message"
             />
@@ -158,7 +160,7 @@ export interface ContactAction {
   ok: boolean;
 }
 
-export const action: ActionFunction = async ({ request }) => {
+export const action: ActionFunction = async ({ request, context }) => {
   const formData = await request.formData();
 
   const data = sendEmailSchema.safeParse({
@@ -174,7 +176,7 @@ export const action: ActionFunction = async ({ request }) => {
     });
   }
 
-  const { ok, error } = await sendEmail(data.data);
+  const { ok, error } = await sendEmail(data.data, context);
 
   if (ok) return json<ContactAction>({ ok: true });
 

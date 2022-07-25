@@ -12,37 +12,10 @@ export const sendEmailSchema = z.object({
 
 type sendEmailArgs = z.infer<typeof sendEmailSchema>;
 
-export const sendEmail = async ({ email, name, message }: sendEmailArgs) => {
-  console.log("Sending email", { email, name, message });
-  // const send_request = new Request("https://api.mailchannels.net/tx/v1/send", {
-  //   method: "POST",
-  //   headers: {
-  //     "content-type": "application/json",
-  //   },
-  //   body: JSON.stringify({
-  //     personalizations: [
-  //       {
-  //         to: [{ email, name }],
-  //       },
-  //     ],
-  //     from: {
-  //       email: sender,
-  //       name: "Voguesama - MailChannels integration",
-  //     },
-  //     subject: "Look! No servers",
-  //     content: [
-  //       {
-  //         type: "text/plain",
-  //         value: `A message sent from ${name}`,
-  //       },
-  //       {
-  //         type: "text/plain",
-  //         value: message,
-  //       },
-  //     ],
-  //   }),
-  // });
-
+export const sendEmail = async (
+  { email, name, message }: sendEmailArgs,
+  context: any
+) => {
   const send_request = new Request("https://api.mailchannels.net/tx/v1/send", {
     method: "POST",
     headers: {
@@ -51,18 +24,22 @@ export const sendEmail = async ({ email, name, message }: sendEmailArgs) => {
     body: JSON.stringify({
       personalizations: [
         {
-          to: [{ email, name }],
+          to: [{ email: context.SENDER_EMAIL, name: "Voguesama" }],
         },
       ],
       from: {
         email: "no-reply@voguesama.me",
-        name: "Workers - MailChannels integration",
+        name: "Voguesama automated",
       },
-      subject: "Look! No servers",
+      subject: `Message from ${name}`,
       content: [
         {
           type: "text/plain",
-          value: "And no email service accounts and all for free too!",
+          value: `Message from ${name}: ${email}`,
+        },
+        {
+          type: "text/plain",
+          value: message,
         },
       ],
     }),
@@ -70,12 +47,10 @@ export const sendEmail = async ({ email, name, message }: sendEmailArgs) => {
 
   const response = await fetch(send_request);
 
-  const respText = await response.text();
-
   if (!response.ok) {
     return {
       ok: false,
-      error: `Failed to send email, ${respText}`,
+      error: `Failed to send email, ${response.statusText}`,
     };
   }
 
