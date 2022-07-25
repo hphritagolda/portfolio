@@ -22,7 +22,7 @@ const Header: FC = () => (
         <nav className="hidden flex-row gap-8 text-lg uppercase md:flex md:text-xl lg:text-2xl">
           <Link to="/#about">about</Link>
           <Link to="/work">work</Link>
-          <Link to="/#contact">contact</Link>
+          <Link to="#contact">contact</Link>
         </nav>
       </div>
     </header>

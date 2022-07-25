@@ -1,12 +1,12 @@
-import { ActionFunction } from "@remix-run/cloudflare";
-import { Form, Outlet } from "@remix-run/react";
-import { FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { Outlet } from "@remix-run/react";
+import ContactForm from "~/components/ContactForm";
 import Header from "~/components/Header";
 
 export default function Layout() {
   return (
     <>
       <Outlet />
+      <ContactForm />
       <Header />
     </>
   );
